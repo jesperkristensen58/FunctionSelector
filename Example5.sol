@@ -12,28 +12,7 @@ contract MsgSigExample {
     // Function bar that emits the function selector and calls foo()
     function bar() public {
         emit LogSelector(msg.sig); // Emits the selector for bar(): 0xfebb0f7e
-        this.foo(); // Calls foo() and emits the selector for foo(): 0xc2985578
-    }
-}
-
-contract MsgSigExampleDoesNotChange {
-    // Event to log the function selector
-    event LogSelector(bytes4);
-
-    // External function that emits the function selector and calls internal functions
-    function externalFunction() external {
-        emit LogSelector(msg.sig); // Emits the selector for externalFunction(): 0x3a32b549
-        internalFunction(); // Calls an internal function, msg.sig does not change
-        anotherInternalFunction(); // Calls another internal function, msg.sig still does not change
-    }
-
-    // Internal function that emits the function selector
-    function internalFunction() internal {
-        emit LogSelector(msg.sig); // Still emits the selector for externalFunction(): 0x3a32b549
-    }
-
-    // Another internal function that emits the function selector
-    function anotherInternalFunction() internal {
-        emit LogSelector(msg.sig); // Still emits the selector for externalFunction(): 0x3a32b549
+        this.foo(); // Calls foo() in 'external mode' and emits the selector for foo(): 0xc2985578
+        foo(); // calls foo() in 'internal mode' so it emits the selector for ... bar()!: 0xfebb0f7e
     }
 }
