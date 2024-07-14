@@ -42,6 +42,13 @@ object "FunctionSelectorExample" {
             function getSelector() -> selector {
                 // Load the first 32 bytes of calldata and right-shift to get the first 4 bytes (function selector)
                 selector := div(calldataload(0), 0x100000000000000000000000000000000000000000000000000000000)
+
+                // Explanation for the div operation (it might look weird since we don't "bit shift" in a more classical sense:
+                // The division operation div(calldataload(0), 0x100000000000000000000000000000000000000000000000000000000)
+                // effectively right-shifts the 256-bit value by 224 bits (28 bytes).
+                // The number 0x100000000000000000000000000000000000000000000000000000000 in hexadecimal is 2^224.
+                // Dividing by 2^224 discards the rightmost 224 bits, leaving only the leftmost 32 bits (4 bytes),
+                // which is the function selector.
             }
         }
     }
