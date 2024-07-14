@@ -1,0 +1,41 @@
+// Simplified and annotated EVM bytecode
+60806040... // Contract creation code (constructor)
+
+// Runtime code starts here
+5b // JUMPDEST (beginning of runtime code)
+
+// Dispatcher
+36 // CALLDATASIZE
+60 04 // PUSH1 0x04
+10 // LT
+80 // DUP1
+61xxxx // PUSH2 <offset to fallback function>
+57 // JUMPI
+
+63xxxxxxxx // PUSH4 <mask for function selector>
+60 00 // PUSH1 0x00
+35 // CALLDATALOAD
+14 // EQ
+61yyyy // PUSH2 <offset to setValue function>
+57 // JUMPI
+
+63zzzzzzzz // PUSH4 <mask for function selector>
+60 00 // PUSH1 0x00
+35 // CALLDATALOAD
+14 // EQ
+61wwww // PUSH2 <offset to getValue function>
+57 // JUMPI
+
+// Fallback function
+5b // JUMPDEST
+00 // STOP
+
+// setValue function
+5b // JUMPDEST
+... // Function body
+56 // JUMP
+
+// getValue function
+5b // JUMPDEST
+... // Function body
+56 // JUMP
