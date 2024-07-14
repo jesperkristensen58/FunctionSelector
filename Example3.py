@@ -1,4 +1,5 @@
 # also run: pip install eth-utils
+# See also: https://emn178.github.io/online-tools/keccak_256.html (the browser version of this code)
 from eth_utils import function_signature_to_4byte_selector
 
 def get_function_selector(func_signature):
