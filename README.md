@@ -14,8 +14,8 @@ This repository provides various examples demonstrating the use of function sele
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/jesperkristensen58/FunctionSelector.git
-    cd FunctionSelector
+    git clone https://github.com/jesperkristensen58/FunctionSelectorEthereum.git
+    cd FunctionSelectorEthereum
     ```
 
 2. **Compile and deploy the contracts** using your preferred Ethereum development environment (e.g., Remix, Hardhat, Truffle).
