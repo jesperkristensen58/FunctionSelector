@@ -4,7 +4,9 @@ This code is from the YouTube channel: https://www.youtube.com/@cryptojesperk
 
 This repository provides various examples demonstrating the use of function selectors in Solidity and Yul. Function selectors are crucial for identifying and invoking functions within Ethereum smart contracts. The examples include basic usage, advanced scenarios, hash collision handling, low-level calls, and interfaces. Additionally, a Python script is provided to compute function selectors for given function signatures. These examples aim to educate developers on the practical applications and nuances of function selectors in smart contract development.
 
-<img src="dispatcher.jpeg" alt="Function Selector" width="400"/>
+<div style="text-align: center;">
+    <img src="dispatcher.jpeg" alt="Function Selector" width="400"/>
+</div>
 
 ## How to Use
 
