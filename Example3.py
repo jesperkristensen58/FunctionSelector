@@ -3,6 +3,8 @@ from sha3 import keccak_256
 # method 2 uses eth-utils:
 from eth_utils import function_signature_to_4byte_selector # pip install eth-utils
 
+# See here for the 'browser version': https://emn178.github.io/online-tools/keccak_256.html
+
 def get_function_selector(func_signature):
     """
     Calculate the function selector for a given Solidity function signature.
