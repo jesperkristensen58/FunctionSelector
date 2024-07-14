@@ -6,7 +6,7 @@ contract CollisionExample {
     function collate_propagate_storage(bytes16 x) external {} // has selector "0x42966c68"
     
     // Function burn with a parameter of type uint256
-    function burn(uint256 amount) external {} // also has selector "0x42966c68" --> clash with burn!
+    function burn(uint256 amount) external {} // also has selector "0x42966c68" --> clash with "collate_propagate_storage"!
     
     // This contract will not compile due to a hash collision between the function selectors.
     // The function selectors for both collate_propagate_storage and burn result in the same hash,
